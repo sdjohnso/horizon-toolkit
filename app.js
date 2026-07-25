@@ -508,23 +508,26 @@
     return card;
   }
 
-  // Two rows: link 1 (WS→WS ⇒ float) then link 2 (float→WS ⇒ final).
+  // Two rows on a shared grid: link 1 (WS→WS ⇒ float) split across both columns, then link 2
+  // (↳ WS ⇒ final) in column 2 only — so the ↳ sits under link 1's closer instead of repeating
+  // the float token it carries.
   function sequenceRow(s) {
     var wrap = el("div", "seq");
 
-    var r1 = el("div", "seq-step");
-    r1.appendChild(wsSpan(s.link1.opener, s.link1.openerSource, s.link1.openProp));
-    r1.appendChild(el("span", "arrow", "→"));
-    r1.appendChild(wsSpan(s.link1.closer, s.link1.closerSource, s.link1.closeProp));
-    r1.appendChild(el("span", "seq-eq", "="));
-    r1.appendChild(scResult(s.link1.result));
-    if (s.link1.status === "confirmed") r1.appendChild(tick());
-    wrap.appendChild(r1);
+    var open = el("div", "seq-cell seq-open");
+    open.appendChild(wsSpan(s.link1.opener, s.link1.openerSource, s.link1.openProp));
+    open.appendChild(el("span", "arrow", "→"));
+    wrap.appendChild(open);
 
-    var r2 = el("div", "seq-step seq-step2");
+    var close = el("div", "seq-cell seq-close");
+    close.appendChild(wsSpan(s.link1.closer, s.link1.closerSource, s.link1.closeProp));
+    close.appendChild(el("span", "seq-eq", "="));
+    close.appendChild(scResult(s.link1.result));
+    if (s.link1.status === "confirmed") close.appendChild(tick());
+    wrap.appendChild(close);
+
+    var r2 = el("div", "seq-cell seq-step2");
     r2.appendChild(el("span", "seq-carry", "↳"));     // the float carries into link 2
-    r2.appendChild(scResult(s.link2.fromProp));
-    r2.appendChild(el("span", "arrow", "→"));
     r2.appendChild(wsSpan(s.link2.closer, s.link2.closerSource, s.link2.closeProp));
     r2.appendChild(el("span", "seq-eq", "="));
     r2.appendChild(scResult(s.link2.result));

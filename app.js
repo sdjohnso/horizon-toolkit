@@ -3,6 +3,7 @@
   "use strict";
 
   var selA, selB, selC, resultsEl, selEnemy, enemyClear, enemyBar;
+  var selCloser, closerPick;
   var showAllChains = false;   // enemy filter: false = weak-only (default), true = show all
 
   function el(tag, cls, text) {
@@ -59,6 +60,62 @@
       });
       sel.appendChild(og);
     });
+  }
+
+  // ----- closing weapon-skill filter -----
+  // Rebuild the "Ends with" dropdown from the selected combatants' arsenals, one optgroup per
+  // source (deduped when the same weapon type is picked twice). Hidden until results can render.
+  function buildCloserSelect() {
+    if (!selA.value || !selB.value) {
+      closerPick.hidden = true;
+      selCloser.innerHTML = "";
+      return;
+    }
+    var prev = selCloser.value;
+    selCloser.innerHTML = "";
+    var ph = el("option", null, "Any weapon skill");
+    ph.value = "";
+    selCloser.appendChild(ph);
+
+    var seen = {};
+    [selA.value, selB.value, selC.value].filter(Boolean).forEach(function (id) {
+      if (seen[id]) return;
+      seen[id] = true;
+      var src = Engine.getSource(id);
+      if (!src) return;
+      var og = document.createElement("optgroup");
+      og.label = src.label;
+      src.skills.forEach(function (ws) {
+        var o = el("option", null, ws.name);
+        o.value = ws.name;
+        og.appendChild(o);
+      });
+      selCloser.appendChild(og);
+    });
+
+    // Keep the previous pick if it's still in an arsenal; otherwise fall back to Any.
+    selCloser.value = prev;
+    if (selCloser.value !== prev) selCloser.value = "";
+    closerPick.hidden = false;
+  }
+
+  // Keep only the ways that end with the chosen weapon skill; drop chains left with none.
+  function filterByCloser(chains, wsName) {
+    return chains.map(function (c) {
+      var out = {};
+      Object.keys(c).forEach(function (k) { out[k] = c[k]; });
+      out.pairs = c.pairs.filter(function (p) { return p.closer === wsName; });
+      return out;
+    }).filter(function (c) { return c.pairs.length; });
+  }
+  // Doubles: the ending weapon skill is link 2's closer (the one that lands the final chain).
+  function filterDoublesByCloser(groups, wsName) {
+    return groups.map(function (g) {
+      var out = {};
+      Object.keys(g).forEach(function (k) { out[k] = g[k]; });
+      out.sequences = g.sequences.filter(function (s) { return s.link2.closer === wsName; });
+      return out;
+    }).filter(function (g) { return g.sequences.length; });
   }
 
   // Build a small orb straight from a raw element token (for the enemy's weakness display).
@@ -329,6 +386,16 @@
       return;
     }
 
+    var closerWS = selCloser.value;
+    if (closerWS) {
+      chains = filterByCloser(chains, closerWS);
+      if (!chains.length) {
+        enemyBar.hidden = true;
+        resultsEl.appendChild(emptyState("No skillchains end with " + closerWS + "."));
+        return;
+      }
+    }
+
     // No enemy chosen → v1 behavior.
     if (!mobName) {
       enemyBar.hidden = true;
@@ -372,6 +439,16 @@
       enemyBar.hidden = true;
       resultsEl.appendChild(emptyState("No double skillchains — these three can’t chain in sequence."));
       return;
+    }
+
+    var closerWS = selCloser.value;
+    if (closerWS) {
+      groups = filterDoublesByCloser(groups, closerWS);
+      if (!groups.length) {
+        enemyBar.hidden = true;
+        resultsEl.appendChild(emptyState("No doubles end with " + closerWS + "."));
+        return;
+      }
     }
 
     // No enemy → show every double.
@@ -533,14 +610,18 @@
     enemyBar = document.getElementById("enemyBar");
     mobMenu = document.getElementById("mob-menu");
     enemyCaret = document.getElementById("enemyCaret");
+    selCloser = document.getElementById("selCloser");
+    closerPick = document.getElementById("closerPick");
 
     Engine.load("data/").then(function () {
       buildSelect(selA);
       buildSelect(selB);
       buildSelect(selC);
-      selA.addEventListener("change", render);
-      selB.addEventListener("change", render);
-      selC.addEventListener("change", render);
+      function onSourceChange() { buildCloserSelect(); render(); }
+      selA.addEventListener("change", onSourceChange);
+      selB.addEventListener("change", onSourceChange);
+      selC.addEventListener("change", onSourceChange);
+      selCloser.addEventListener("change", render);
       // Combobox: open on focus/click (shows all families), filter as you type.
       selEnemy.addEventListener("focus", openMobMenu);
       selEnemy.addEventListener("click", openMobMenu);

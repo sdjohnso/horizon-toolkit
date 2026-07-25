@@ -82,6 +82,9 @@ Property tokens = the 8 tier-1 names + the 4 tier-2 names (fusion/fragmentation/
   continues it up a tier). Doubles-only view when three are set; the enemy filter tags the **final**
   chain's elements. Engine: `findDoubleChains(idA,idB,idC)` (link 2 reuses the link-1 combo lookup;
   the combo table itself enforces the tier gate — a floating T2 can only reach T3, T3 never opens). **Shipped.**
+- **Closer filter:** optional "Ends with" dropdown listing every WS from the selected arsenals
+  (optgroup per source, deduped), trimming results to chains that END on that WS (doubles: link 2's
+  closer). Pure post-filter in app.js — no engine changes. **Shipped.**
 - **Later:** 4-6 party + triple+ chaining; per-job weapon-skill level gating; weapon damage-type weakness.
 
 Plans live in `plans/` (`completed/` for shipped work); see `plans/ROADMAP.md`.

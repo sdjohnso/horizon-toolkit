@@ -6,7 +6,9 @@
     "pairConfirmations": "array of { a, b, result, status, note }. Empirical WS-pair results tested in-game (link 1). status: 'confirmed' | 'fizzles' | 'different'. 'a' opens, 'b' closes.",
     "chainConfirmations": "array of { from, ws, result, status, note }. Empirical LINK-2 results for double skillchains: the floating result token 'from' (a tier-1 or tier-2 skillchain name, e.g. 'liquefaction'/'distortion') closed by weapon skill 'ws'. status: 'confirmed' | 'fizzles' | 'different' — same semantics as pairConfirmations, but link 2's opener is a floating skillchain, not a WS. comboOverrides/weaponSkillProperties already cover property- and WS-level Horizon changes on BOTH links; this is only for WS-specific link-2 results."
   },
-  "weaponSkillProperties": {},
+  "weaponSkillProperties": {
+    "Avalanche Axe": ["induration"]
+  },
   "comboOverrides": [],
   "pairConfirmations": [],
   "chainConfirmations": []

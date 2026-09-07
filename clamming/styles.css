@@ -35,13 +35,11 @@ html, body {
   padding: 20px 16px 60px;
 }
 
-/* Header */
-.head { text-align: center; margin: 6px 0 18px; }
-.head .crumb { margin: 0 0 2px; font-size: 12px; }
-.head .crumb a { color: var(--muted); text-decoration: none; }
+/* Header — thin, lives inside the sticky block */
+.head { text-align: center; margin: 0 0 8px; }
 .head h1 {
   margin: 0;
-  font-size: 30px;
+  font-size: 20px;
   letter-spacing: .5px;
   font-weight: 800;
   background: linear-gradient(90deg, #ffd24c, #ff6b6b, #9b6bff, #4fb8e8);
@@ -49,7 +47,6 @@ html, body {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.head .sub { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
 .opt { color: var(--muted); font-weight: 400; text-transform: none; }
 
 /* Cards */

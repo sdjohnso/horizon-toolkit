@@ -88,42 +88,25 @@
 
   function renderFlag(weight, value, pBreak) {
     flagEl.className = "flag";
-    flagEl.textContent = "";
-    var pct = Math.round(pBreak * 1000) / 10;
 
-    var inWindow = state.cap < 200 && weight >= state.cap - 5 && weight <= state.cap;
-    if (inWindow) {
+    if (state.cap < 200 && weight >= state.cap - 5 && weight <= state.cap) {
       flagEl.classList.add("purple");
-      flagEl.appendChild(document.createTextNode("Free upgrade — talk to Toh Zonikki now"));
-      flagEl.appendChild(el("small", null,
-        "Within 5pz of capacity: the cash-out chat offers a " + (state.cap + 50) +
-        "pz bucket and keeps your haul. Never decline it."));
+      flagEl.textContent = "Free upgrade — talk to Toh Zonikki";
       return;
     }
 
     // Dig again iff expected gain (1−p)·avgDig beats expected loss p·value.
     var expectedLoss = pBreak * value;
     var expectedGain = (1 - pBreak) * avgDig;
-    if (pBreak === 0) {
+    if (expectedLoss <= expectedGain * 0.5) {
       flagEl.classList.add("green");
-      flagEl.appendChild(document.createTextNode("Keep clamming"));
-      flagEl.appendChild(el("small", null, "Nothing in the pool can break this bucket right now."));
-    } else if (expectedLoss <= expectedGain * 0.5) {
-      flagEl.classList.add("green");
-      flagEl.appendChild(document.createTextNode("Keep clamming — worth the risk"));
-      flagEl.appendChild(el("small", null, pct + "% chance the next dig breaks the bucket."));
+      flagEl.textContent = "Keep clamming";
     } else if (expectedLoss <= expectedGain) {
       flagEl.classList.add("yellow");
-      flagEl.appendChild(document.createTextNode("Getting risky — cash out on a good haul"));
-      flagEl.appendChild(el("small", null,
-        pct + "% break chance on " + fmtGil(value) + " — close to the ~" +
-        Math.round(avgDig) + "g an average dig is worth."));
+      flagEl.textContent = "Getting risky";
     } else {
       flagEl.classList.add("red");
-      flagEl.appendChild(document.createTextNode("Cash out — risk outweighs the next dig"));
-      flagEl.appendChild(el("small", null,
-        pct + "% break chance on " + fmtGil(value) + " at stake beats the ~" +
-        Math.round(avgDig) + "g an average dig brings in."));
+      flagEl.textContent = "Cash out";
     }
   }
 

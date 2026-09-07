@@ -117,12 +117,16 @@ profit (value − 500g kit), and a **decision flag** — the headline feature, p
 
 ### Data (`clamming/data/items.json`)
 
-31-item Horizon drop pool with `pz` (weight), `gil` (NPC price, fame-approximate), `rate`
-(observed appearance %). Source: **Sushomi's Clamming Guide + "Clamming: An Analysis By Sushomi"
-(horizonffxi.wiki)** — ~9.3k logged digs, post-patch-1.2, standard-gear column. Rates/values are
-data, not code — Horizon patches can shift the drop table; update the JSON when the wiki does.
-Goblin Armor/Mask/Mail + Broken Willow Rod have `gil: 0` (unconfirmed NPC values — fix when
-Scott checks in-game).
+31-item Horizon drop pool with `pz` (weight), `gil` (NPC price), `rate` (observed appearance %).
+Weights/rates: **Sushomi's Clamming Guide + "Clamming: An Analysis By Sushomi" (horizonffxi.wiki)**
+— ~9.3k logged digs, post-patch-1.2, standard-gear column. Prices are deliberately the **lowest
+known NPC value** (min of ffxiclopedia zero-fame minimums and Sushomi's Horizon-observed numbers)
+so fame only ever bumps real payouts above the estimate — Scott's call 2026-09-07. Goblin
+Armor/Mask/Mail + Broken Willow Rod are `gil: 0` — **confirmed unsellable to NPCs** (ffxiclopedia,
+Horizon wiki, and hxiclam all agree); shown as "—" in the item guide. Rates/values are data, not
+code — Horizon patches can shift the drop table; update the JSON when the wiki does. Grid buttons
+are name-only and alphabetical; the full weight/price table lives in the "Item weights & prices"
+modal.
 
 **Context:** community addons (hxiclam, Clammy — PC overlays) track weight/value but give no
 decision advice and don't work on phones; that gap is this tool's reason to exist. A dig timer

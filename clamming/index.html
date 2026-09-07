@@ -41,7 +41,22 @@
 
     <section aria-label="Clammed items">
       <div class="grid" id="itemGrid"></div>
+      <button id="btnGuide" class="btn btn-ghost" type="button">Item weights &amp; prices</button>
     </section>
+
+    <div class="modal-overlay" id="guideModal" hidden>
+      <div class="modal" role="dialog" aria-modal="true" aria-label="Item weights and prices">
+        <div class="modal-head">
+          <h2>Item weights &amp; prices</h2>
+          <button id="btnGuideClose" class="modal-close" type="button" aria-label="Close">&times;</button>
+        </div>
+        <table class="guide-table">
+          <thead><tr><th>Item</th><th>Weight</th><th>NPC</th></tr></thead>
+          <tbody id="guideBody"></tbody>
+        </table>
+        <p class="modal-note">Prices are the lowest known NPC values &mdash; fame can only bump them up.</p>
+      </div>
+    </div>
 
     <section class="card contents" id="contentsCard" hidden aria-label="Bucket contents">
       <h2>In the bucket</h2>

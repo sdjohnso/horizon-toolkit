@@ -1,39 +1,202 @@
 {
-  "_source": "Sushomi's Clamming Guide + 'Clamming: An Analysis By Sushomi' (horizonffxi.wiki), post-patch-1.2 Horizon drop pool, ~9.3k samples, standard gear column. rate = observed appearance %, pz = ponze weight, gil = approx NPC sale price (varies slightly with fame). gil 0 = value unconfirmed.",
+  "_source": "Weights/rates: Sushomi's Clamming Guide + Analysis (horizonffxi.wiki), post-patch-1.2, ~9.3k samples, standard gear. gil = LOWEST known NPC sale price (min of ffxiclopedia zero-fame minimums and Sushomi's Horizon-observed values) so fame only ever bumps payouts up. gil 0 = cannot be sold to NPCs (Goblin Armor/Mask/Mail, Broken Willow Rod \u2014 confirmed across ffxiclopedia, Horizon wiki, hxiclam).",
   "kitCost": 500,
-  "capacities": [50, 100, 150, 200],
-  "incident200": { "base": 10, "hqTop": 5 },
+  "capacities": [
+    50,
+    100,
+    150,
+    200
+  ],
+  "incident200": {
+    "base": 10,
+    "hqTop": 5
+  },
   "items": [
-    { "name": "Pebble",            "pz": 7,  "gil": 1,     "rate": 20.7 },
-    { "name": "Jacknife",          "pz": 11, "gil": 58,    "rate": 9.4 },
-    { "name": "Bibiki Slug",       "pz": 3,  "gil": 10,    "rate": 9.2 },
-    { "name": "Pamtam Kelp",       "pz": 6,  "gil": 7,     "rate": 6.7 },
-    { "name": "Vongola Clam",      "pz": 6,  "gil": 192,   "rate": 5.5 },
-    { "name": "Shall Shell",       "pz": 6,  "gil": 307,   "rate": 4.9 },
-    { "name": "Fish Scales",       "pz": 3,  "gil": 23,    "rate": 4.6 },
-    { "name": "Pugil Scales",      "pz": 3,  "gil": 24,    "rate": 4.4 },
-    { "name": "White Sand",        "pz": 7,  "gil": 250,   "rate": 2.9 },
-    { "name": "Seashell",          "pz": 6,  "gil": 30,    "rate": 2.5 },
-    { "name": "Nebimonite",        "pz": 6,  "gil": 53,    "rate": 2.4 },
-    { "name": "Hobgoblin Bread",   "pz": 6,  "gil": 91,    "rate": 2.3 },
-    { "name": "Hobgoblin Pie",     "pz": 6,  "gil": 153,   "rate": 2.3 },
-    { "name": "Goblin Armor",      "pz": 6,  "gil": 0,     "rate": 2.3 },
-    { "name": "Goblin Mask",       "pz": 6,  "gil": 0,     "rate": 2.2 },
-    { "name": "Goblin Mail",       "pz": 6,  "gil": 0,     "rate": 2.1 },
-    { "name": "Broken Willow Rod", "pz": 6,  "gil": 0,     "rate": 2.1 },
-    { "name": "Crab Shell",        "pz": 6,  "gil": 392,   "rate": 2.1 },
-    { "name": "HQ Pugil Scales",   "pz": 6,  "gil": 253,   "rate": 1.6 },
-    { "name": "Tropical Clam",     "pz": 20, "gil": 5100,  "rate": 1.4 },
-    { "name": "Maple Log",         "pz": 6,  "gil": 15,    "rate": 1.2 },
-    { "name": "Titanictus Shell",  "pz": 6,  "gil": 357,   "rate": 1.2 },
-    { "name": "Bibiki Urchin",     "pz": 6,  "gil": 750,   "rate": 1.1 },
-    { "name": "Turtle Shell",      "pz": 6,  "gil": 1190,  "rate": 1.0 },
-    { "name": "Coral Fragment",    "pz": 6,  "gil": 1735,  "rate": 0.9 },
-    { "name": "Elm Log",           "pz": 6,  "gil": 390,   "rate": 0.6 },
-    { "name": "Uragnite Shell",    "pz": 6,  "gil": 1455,  "rate": 0.6 },
-    { "name": "Oxblood",           "pz": 6,  "gil": 13250, "rate": 0.5 },
-    { "name": "Petrified Log",     "pz": 6,  "gil": 2193,  "rate": 0.5 },
-    { "name": "Lacquer Tree Log",  "pz": 6,  "gil": 3578,  "rate": 0.5 },
-    { "name": "HQ Crab Shell",     "pz": 6,  "gil": 3312,  "rate": 0.4 }
+    {
+      "name": "Pebble",
+      "pz": 7,
+      "gil": 1,
+      "rate": 20.7
+    },
+    {
+      "name": "Jacknife",
+      "pz": 11,
+      "gil": 53,
+      "rate": 9.4
+    },
+    {
+      "name": "Bibiki Slug",
+      "pz": 3,
+      "gil": 9,
+      "rate": 9.2
+    },
+    {
+      "name": "Pamtam Kelp",
+      "pz": 6,
+      "gil": 7,
+      "rate": 6.7
+    },
+    {
+      "name": "Vongola Clam",
+      "pz": 6,
+      "gil": 192,
+      "rate": 5.5
+    },
+    {
+      "name": "Shall Shell",
+      "pz": 6,
+      "gil": 291,
+      "rate": 4.9
+    },
+    {
+      "name": "Fish Scales",
+      "pz": 3,
+      "gil": 23,
+      "rate": 4.6
+    },
+    {
+      "name": "Pugil Scales",
+      "pz": 3,
+      "gil": 23,
+      "rate": 4.4
+    },
+    {
+      "name": "White Sand",
+      "pz": 7,
+      "gil": 250,
+      "rate": 2.9
+    },
+    {
+      "name": "Seashell",
+      "pz": 6,
+      "gil": 28,
+      "rate": 2.5
+    },
+    {
+      "name": "Nebimonite",
+      "pz": 6,
+      "gil": 52,
+      "rate": 2.4
+    },
+    {
+      "name": "Hobgoblin Bread",
+      "pz": 6,
+      "gil": 87,
+      "rate": 2.3
+    },
+    {
+      "name": "Hobgoblin Pie",
+      "pz": 6,
+      "gil": 150,
+      "rate": 2.3
+    },
+    {
+      "name": "Goblin Armor",
+      "pz": 6,
+      "gil": 0,
+      "rate": 2.3
+    },
+    {
+      "name": "Goblin Mask",
+      "pz": 6,
+      "gil": 0,
+      "rate": 2.2
+    },
+    {
+      "name": "Goblin Mail",
+      "pz": 6,
+      "gil": 0,
+      "rate": 2.1
+    },
+    {
+      "name": "Broken Willow Rod",
+      "pz": 6,
+      "gil": 0,
+      "rate": 2.1
+    },
+    {
+      "name": "Crab Shell",
+      "pz": 6,
+      "gil": 371,
+      "rate": 2.1
+    },
+    {
+      "name": "HQ Pugil Scales",
+      "pz": 6,
+      "gil": 253,
+      "rate": 1.6
+    },
+    {
+      "name": "Tropical Clam",
+      "pz": 20,
+      "gil": 5040,
+      "rate": 1.4
+    },
+    {
+      "name": "Maple Log",
+      "pz": 6,
+      "gil": 14,
+      "rate": 1.2
+    },
+    {
+      "name": "Titanictus Shell",
+      "pz": 6,
+      "gil": 350,
+      "rate": 1.2
+    },
+    {
+      "name": "Bibiki Urchin",
+      "pz": 6,
+      "gil": 750,
+      "rate": 1.1
+    },
+    {
+      "name": "Turtle Shell",
+      "pz": 6,
+      "gil": 1190,
+      "rate": 1.0
+    },
+    {
+      "name": "Coral Fragment",
+      "pz": 6,
+      "gil": 1735,
+      "rate": 0.9
+    },
+    {
+      "name": "Elm Log",
+      "pz": 6,
+      "gil": 371,
+      "rate": 0.6
+    },
+    {
+      "name": "Uragnite Shell",
+      "pz": 6,
+      "gil": 1455,
+      "rate": 0.6
+    },
+    {
+      "name": "Oxblood",
+      "pz": 6,
+      "gil": 13250,
+      "rate": 0.5
+    },
+    {
+      "name": "Petrified Log",
+      "pz": 6,
+      "gil": 2150,
+      "rate": 0.5
+    },
+    {
+      "name": "Lacquer Tree Log",
+      "pz": 6,
+      "gil": 3500,
+      "rate": 0.5
+    },
+    {
+      "name": "HQ Crab Shell",
+      "pz": 6,
+      "gil": 3125,
+      "rate": 0.4
+    }
   ]
 }

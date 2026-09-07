@@ -236,22 +236,39 @@
       capChips.appendChild(b);
     });
 
-    // item grid, most common first
-    DATA.items.slice().sort(function (a, b) { return b.rate - a.rate; })
-      .forEach(function (it) {
-        var b = el("button", "item-btn");
-        b.type = "button";
-        b.dataset.name = it.name;
-        b.appendChild(el("span", "i-name", it.name));
-        var meta = el("span", "i-meta", it.pz + "pz · ");
-        meta.appendChild(el("b", null, it.gil ? fmtGil(it.gil) : "?g"));
-        b.appendChild(meta);
-        b.addEventListener("click", function () {
-          state.bucket.push(it.name);
-          render();
-        });
-        itemGrid.appendChild(b);
+    // item grid: names only, alphabetical — easy to scan and tap
+    var alpha = DATA.items.slice().sort(function (a, b) { return a.name.localeCompare(b.name); });
+    alpha.forEach(function (it) {
+      var b = el("button", "item-btn");
+      b.type = "button";
+      b.dataset.name = it.name;
+      b.appendChild(el("span", "i-name", it.name));
+      b.addEventListener("click", function () {
+        state.bucket.push(it.name);
+        render();
       });
+      itemGrid.appendChild(b);
+    });
+
+    // item guide modal
+    var guideBody = document.getElementById("guideBody");
+    alpha.forEach(function (it) {
+      var tr = el("tr");
+      tr.appendChild(el("td", null, it.name));
+      tr.appendChild(el("td", "g-num", it.pz + "pz"));
+      tr.appendChild(el("td", "g-num", it.gil ? fmtGil(it.gil) : "—"));
+      guideBody.appendChild(tr);
+    });
+    var guideModal = document.getElementById("guideModal");
+    document.getElementById("btnGuide").addEventListener("click", function () {
+      guideModal.hidden = false;
+    });
+    document.getElementById("btnGuideClose").addEventListener("click", function () {
+      guideModal.hidden = true;
+    });
+    guideModal.addEventListener("click", function (e) {
+      if (e.target === guideModal) guideModal.hidden = true;
+    });
 
     btnUndo.addEventListener("click", function () {
       state.bucket.pop();

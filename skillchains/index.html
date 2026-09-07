@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Horizon Skillchains</title>
+  <meta name="description" content="Pick two combatants and instantly see every FFXI (Horizon) skillchain they can make." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="head">
+      <h1>Skillchains</h1>
+      <p class="sub">FFXI &middot; Horizon &mdash; pick two, or three for a double.</p>
+    </header>
+
+    <section class="pickers" aria-label="Combatants">
+      <div class="picker">
+        <label for="selA">Combatant 1</label>
+        <select id="selA" class="src-select"></select>
+      </div>
+      <div class="chain-arrow" aria-hidden="true">&#9741;</div>
+      <div class="picker">
+        <label for="selB">Combatant 2</label>
+        <select id="selB" class="src-select"></select>
+      </div>
+      <div class="chain-arrow" aria-hidden="true">&#9741;</div>
+      <div class="picker">
+        <label for="selC">Combatant 3 <span class="opt">&mdash; opt.</span></label>
+        <select id="selC" class="src-select"></select>
+      </div>
+    </section>
+
+    <section class="closer-pick" id="closerPick" aria-label="Closing weapon skill" hidden>
+      <label for="selCloser">Ends with <span class="opt">&mdash; optional, only chains that finish on this weapon skill</span></label>
+      <select id="selCloser" class="src-select"></select>
+    </section>
+
+    <section class="enemy-pick" aria-label="Enemy">
+      <label for="selEnemy">Enemy <span class="opt">— optional, trims to what it&rsquo;s weak to</span></label>
+      <div class="enemy-row">
+        <input id="selEnemy" class="enemy-input" placeholder="Type an enemy family&hellip;"
+               autocomplete="off" autocapitalize="words" spellcheck="false"
+               role="combobox" aria-expanded="false" aria-controls="mob-menu" aria-autocomplete="list" />
+        <span id="enemyCaret" class="enemy-caret" aria-hidden="true">&#9662;</span>
+        <button id="enemyClear" class="enemy-clear" type="button" aria-label="Clear enemy" hidden>&times;</button>
+        <ul id="mob-menu" class="enemy-menu" role="listbox" aria-label="Enemy families" hidden></ul>
+      </div>
+      <div id="enemyBar" class="enemy-bar" hidden></div>
+    </section>
+
+    <section id="results" class="results" aria-live="polite"></section>
+
+    <footer class="foot">
+      <p>Weapon-skill data transcribed from the Horizon Skillchain Guide. Horizon-confirmed
+         corrections applied over time. Not affiliated with Square Enix.</p>
+    </footer>
+  </main>
+
+  <script src="engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,9 +1,9 @@
-# Roadmap — Horizon Skillchains
+# Roadmap — Horizon Toolkit
 
-Live: https://sdjohnso.github.io/horizon-skillchains/
+Live: https://sdjohnso.github.io/horizon-toolkit/
 
 ## In progress
-- _(none)_
+- **[toolkit-clamming.md](toolkit-clamming.md)** — Horizon Toolkit pivot (landing + `/skillchains/` move) + clamming tracker.
 ## Completed
 - **[completed/double-skillchain.md](completed/double-skillchain.md)** — v3 3rd combatant → double
   skillchains (doubles-only view; enemy filter on the final chain; `chainConfirmations` overrides). Live.

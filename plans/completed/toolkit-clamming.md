@@ -1,8 +1,8 @@
 # Horizon Toolkit Pivot + Clamming Tracker
 **Branch:** `main`
 **Created:** 2026-09-07
-**Status:** In Progress - Phase 1, Step 1.1
-**Next Action:** Rename GitHub repo to `horizon-toolkit` and update remote/URL references.
+**Status:** Complete
+**Next Action:** None — shipped 2026-09-07 (validated in Chrome; pushed to Pages).
 **Purpose:** Rebrand the project as a multi-tool Horizon Toolkit (minimal landing + per-tool pages) and ship a mobile-first clamming tracker with a "cash out / keep clamming" decision flag.
 **Security:** No DB, API, endpoints, or server-side user input — pure static client-side site. Security review skipped per global policy (exempt category).
 
@@ -73,21 +73,21 @@ Upgrade = tapping the next capacity chip; contents kept.
 
 ## Phase 1 — Toolkit restructure
 
-- [ ] **1.1 Rename repo + move skillchains + landing page**
+- [x] **1.1 Rename repo + move skillchains + landing page**
   - Resources: repo remote, all root app files, new root `index.html`. Partition: whole repo (single-partition project).
-  - [ ] `gh repo rename horizon-toolkit` (inside repo; verify remote updated)
-  - [ ] `git mv` app files into `skillchains/`
-  - [ ] Root landing page (self-contained, two cards)
-  - [ ] Update live URL in ROADMAP
+  - [x] `gh repo rename horizon-toolkit` (inside repo; verify remote updated)
+  - [x] `git mv` app files into `skillchains/`
+  - [x] Root landing page (self-contained, two cards)
+  - [x] Update live URL in ROADMAP
   - Validation: `git status` clean after commit; open landing + `/skillchains/` locally, chains render.
   - Next Session Prompt: I'm on `main`. Toolkit restructure done. Review `plans/toolkit-clamming.md`, continue Phase 2.
 
 ## Phase 2 — Clamming tracker
 
-- [ ] **2.1 Data file** — `clamming/data/items.json` from Sushomi tables (31 items, weight/gil/rate).
-- [ ] **2.2 App** — `clamming/index.html` + `styles.css` + `app.js` per Architecture.
+- [x] **2.1 Data file** — `clamming/data/items.json` from Sushomi tables (31 items, weight/gil/rate).
+- [x] **2.2 App** — `clamming/index.html` + `styles.css` + `app.js` per Architecture.
   - Validation: manual walkthrough in Chrome mobile viewport — tap to 44pz on a 50 bucket → red flag ~33%; 45pz → upgrade banner; tap 100 chip → contents kept; cash out → session updates; reload → state persists.
-- [ ] **2.3 CLAUDE.md restructure + frontmatter; ROADMAP update; move plan to completed.**
+- [x] **2.3 CLAUDE.md restructure + frontmatter; ROADMAP update; move plan to completed.**
 
 ## Follow-Up Plans
 

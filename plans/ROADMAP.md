@@ -3,8 +3,10 @@
 Live: https://sdjohnso.github.io/horizon-toolkit/
 
 ## In progress
-- **[toolkit-clamming.md](toolkit-clamming.md)** — Horizon Toolkit pivot (landing + `/skillchains/` move) + clamming tracker.
+- _(none)_
 ## Completed
+- **[completed/toolkit-clamming.md](completed/toolkit-clamming.md)** — Horizon Toolkit pivot (repo rename,
+  landing page, `/skillchains/` move) + clamming tracker with EV-based cash-out flag. Live.
 - **[completed/double-skillchain.md](completed/double-skillchain.md)** — v3 3rd combatant → double
   skillchains (doubles-only view; enemy filter on the final chain; `chainConfirmations` overrides). Live.
 - **[completed/enemy-filter.md](completed/enemy-filter.md)** — v2 enemy weakness filter incl. retail

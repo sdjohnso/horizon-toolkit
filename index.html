@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Horizon Toolkit</title>
   <meta name="description" content="Simple mobile tools for FFXI on the Horizon private server." />
+  <meta name="theme-color" content="#0f1117" />
+  <link rel="apple-touch-icon" href="icon-180.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
   <style>
     :root {
       --bg: #0f1117;
@@ -42,7 +45,6 @@
     }
     .tool:active { background: var(--surface-2); }
     .tool h2 { margin: 0 0 4px; font-size: 20px; font-weight: 700; }
-    .tool h2 .glyph { color: var(--accent); margin-right: 8px; }
     .tool p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.45; }
     .foot { margin-top: 34px; text-align: center; color: var(--muted); font-size: 12px; line-height: 1.5; }
   </style>
@@ -56,11 +58,11 @@
 
     <nav class="tools" aria-label="Tools">
       <a class="tool" href="skillchains/">
-        <h2><span class="glyph" aria-hidden="true">&#9741;</span>Skillchains</h2>
+        <h2>Skillchains</h2>
         <p>Pick two combatants &mdash; or three for a double &mdash; and see every skillchain they can make, with magic-burst elements.</p>
       </a>
       <a class="tool" href="clamming/">
-        <h2><span class="glyph" aria-hidden="true">&#129699;</span>Clamming</h2>
+        <h2>Clamming</h2>
         <p>Tap what you clam in Bibiki Bay. Live bucket weight, NPC profit, and a clear &ldquo;keep going or cash out&rdquo; call.</p>
       </a>
     </nav>

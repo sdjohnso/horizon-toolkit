@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clamming &middot; Horizon Toolkit</title>
+  <meta name="description" content="Tap what you clam in Bibiki Bay — live bucket weight, NPC profit, and a clear keep-going-or-cash-out call. FFXI Horizon." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="head">
+      <p class="crumb"><a href="../">Horizon Toolkit</a></p>
+      <h1>Clamming</h1>
+      <p class="sub">FFXI &middot; Horizon &mdash; tap what you clam.</p>
+    </header>
+
+    <section class="bucket card" aria-label="Bucket">
+      <div class="cap-row" role="radiogroup" aria-label="Bucket capacity">
+        <span class="cap-label">Bucket</span>
+        <div class="cap-chips" id="capChips"></div>
+      </div>
+      <div class="weight-bar" aria-hidden="true"><div class="weight-fill" id="weightFill"></div></div>
+      <div class="bucket-stats">
+        <div class="stat"><span class="stat-num" id="statWeight">0<small>/50pz</small></span><span class="stat-label">weight</span></div>
+        <div class="stat"><span class="stat-num" id="statValue">0g</span><span class="stat-label">NPC value</span></div>
+        <div class="stat"><span class="stat-num" id="statProfit">&minus;500g</span><span class="stat-label">profit</span></div>
+      </div>
+      <label class="hq-toggle" id="hqToggleWrap" hidden>
+        <input type="checkbox" id="hqTop" /> HQ swimsuit top <span class="opt">(halves the 200pz mandragora risk)</span>
+      </label>
+    </section>
+
+    <section class="flag" id="flag" role="status" aria-live="polite"></section>
+
+    <section class="actions" aria-label="Bucket actions">
+      <button id="btnUndo" class="btn" disabled>Undo</button>
+      <button id="btnCash" class="btn btn-cash" disabled>Cash out</button>
+      <button id="btnBroke" class="btn btn-broke" disabled>It broke!</button>
+    </section>
+
+    <section aria-label="Clammed items">
+      <div class="grid" id="itemGrid"></div>
+    </section>
+
+    <section class="card contents" id="contentsCard" hidden aria-label="Bucket contents">
+      <h2>In the bucket</h2>
+      <ul id="contentsList"></ul>
+    </section>
+
+    <section class="card session" aria-label="Session">
+      <h2>Session</h2>
+      <div class="session-stats" id="sessionStats"></div>
+      <button id="btnReset" class="btn btn-ghost">Reset session</button>
+    </section>
+
+    <footer class="foot">
+      <p>Weights, values &amp; rates from Sushomi&rsquo;s Clamming Guide (Horizon wiki, ~9.3k logged digs).
+         Prices vary slightly with fame. Not affiliated with Square Enix.</p>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
